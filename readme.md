@@ -8,12 +8,16 @@ Esta é uma API para gerenciar informações de alunos. A API permite criar, ler
 ➕ Adicionar Aluno: Adicionar um novo aluno ao sistema.
 ✏️ Atualizar Aluno: Atualizar os detalhes de um aluno existente.
 🗑️ Excluir Aluno: Remover um aluno do sistema.
+
+
 🛠️ Pré-requisitos
 
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento:
 
 Node.js (versão 14 ou superior)
 npm (gerenciador de pacotes do Node.js)
+
+
 🚀 Instalação
 
 Clone o repositório:
@@ -63,6 +67,8 @@ Exemplo de requisição para listar alunos:
 
 Método: GET
 URL: http://localhost:3000/alunos
+
+
 🤝 Contribuição
 
 Se você deseja contribuir com este projeto, siga as etapas abaixo:
@@ -72,6 +78,8 @@ Crie uma nova branch (git checkout -b feature/nova-funcionalidade)
 Faça o commit das suas alterações (git commit -m 'Adiciona nova funcionalidade')
 Faça o push para a branch (git push origin feature/nova-funcionalidade)
 Abra um Pull Request
+
+
 📝 Licença
 
 Este projeto está licenciado sob a MIT License.
