@@ -7,11 +7,11 @@ const alunosRouter = Router();
 // inserir um novo aluno no banco de dados
 alunosRouter.post("/", async (req, res) => {
   // desestruturar o corpo da requisição
-  const { nome, idade, notaPrimeiroSemestre, notaSegundoSemestre, professor } =
+  const { nome, idade, notaPrimeiroSemestre, notaSegundoSemestre, professor, sala } =
     req.body;
   try {
     // declara a query que será executada no banco de dados
-    const query = `INSERT INTO alunos (nome, idade, notaPrimeiroSemestre, notaSegundoSemestre, professor) values (?,?,?,?,?)`;
+    const query = `INSERT INTO alunos (nome, idade, notaPrimeiroSemestre, notaSegundoSemestre, professor, sala) values (?,?,?,?,?,?)`;
     // obtem a conexão com o banco de dados
     const db = await sqliteConnection();
     // executa a query no banco de dados
@@ -21,6 +21,7 @@ alunosRouter.post("/", async (req, res) => {
       notaPrimeiroSemestre,
       notaSegundoSemestre,
       professor,
+      sala,
     ]);
     // retorna uma resposta de sucesso
     return res.status(200).json({ message: "Usuario inserido com sucesso" });
