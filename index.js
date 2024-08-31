@@ -1,29 +1,27 @@
-// index.js
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
-const alunosRouter = require('./routes/alunos');
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const routes = require("./routes/index");
 const app = express();
-const port = process.env.PORT || 3000;
 
-// Conexão com o MongoDB 
-mongoose.connect('mongodb://localhost:3000/minha-api', { useNewUrlParser: true, useUnifiedTopology: true });
+// importar o arquivo que roda as migrations
+const migrationsRun = require("./database/migrations/index.js");
 
+// rodar o banco
+migrationsRun();
+
+// cors e body parser
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Rotas da API
-app.get('/', (req, res) => {
-  res.send('API funcionando!');
-});
+// rotas da nossa aplicacao
+app.use("/", routes);
 
-// ... outras rotas
+// porta que vai rodar a api
+const port = 3000;
 
+// app vai escutar essa porta e requesicoes
 app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
-
-app.use('/alunos', alunosRouter);
